@@ -90,6 +90,12 @@ createApp({
         })
         .catch((err) => alert(err.response.data.message));
     };
+
+    const createImages = () => {
+      tempProduct.value.imagesUrl = [];
+      tempProduct.value.imagesUrl.push("");
+    };
+
     onMounted(() => {
       productModal = new bootstrap.Modal(
         document.getElementById("productModal"),
@@ -122,6 +128,7 @@ createApp({
       openModal,
       confirm,
       confirmDelete,
+      createImages,
     };
   },
 }).mount("#app");
