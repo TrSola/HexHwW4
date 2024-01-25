@@ -28,7 +28,7 @@ createApp({
           getData();
         })
         .catch((err) => {
-          alert(err.response.data.message);
+          alert(err.data.message);
           window.location = "index.html";
         });
     };
@@ -57,7 +57,7 @@ createApp({
       }
     };
 
-    const confirm = () => {
+    const confirmUpdate = () => {
       if (status.value === "new") {
         axios
           .post(`${apiAdmin}/product`, { data: tempProduct.value })
@@ -66,7 +66,7 @@ createApp({
             productModal.hide();
             getData();
           })
-          .catch((err) => alert(err.response.data.message));
+          .catch((err) => alert(err.data.message));
       } else if (status.value === "edit") {
         axios
           .put(`${apiAdmin}/product/${tempProduct.value.id}`, {
@@ -126,7 +126,7 @@ createApp({
       productList,
       tempProduct,
       openModal,
-      confirm,
+      confirmUpdate,
       confirmDelete,
       createImages,
     };
